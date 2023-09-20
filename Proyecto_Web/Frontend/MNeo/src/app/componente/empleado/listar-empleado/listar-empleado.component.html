@@ -1,0 +1,80 @@
+<app-header (oscuro)="modoOscuro($event)"></app-header>
+<main class="fondoContenido" [ngClass]="{'oscuro':oscuro}">
+            
+    <div class="contenido" >
+        <h1 style="text-align: center;">Lista de Empleados</h1>
+        
+        
+        <div>
+            <a href="/crearEmpleado" ><button mat-raised-button class="bg-success crear">Crear Empleado</button></a>
+            <mat-form-field appearance="outline" class="buscar">
+                <mat-label>Realizar Filtro</mat-label>
+                <input matInput (keyup)="filtroTabla($event)" placeholder="Filtro"#input>
+            </mat-form-field>
+        </div>
+        
+
+        <div *ngIf="listaEmpleado">
+            <table mat-table matSort [dataSource]="listaEmpleado">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >ID</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dni">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >DNI</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.nroDocumento}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="nomYape">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >Nom y Ape</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.nombre}} {{emp.apellido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >Email</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaN">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >FechaNac</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.fechaNacimiento}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaI">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >FechaIng</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.fechaIngreso}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaC">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >FechaCre</th>
+                    <td mat-cell *matCellDef="let emp"> {{emp.fechaCreacion}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="editar">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >Editar</th>
+                    <td mat-cell *matCellDef="let emp"> <a (click)="openEditEmpleado(emp)"><mat-icon style="color:rgb(101, 252, 82)">edit</mat-icon></a> </td>
+                </ng-container>
+
+                <ng-container matColumnDef="borrar">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef >Borrar</th>
+                    <td mat-cell *matCellDef="let emp"> <a (click)="borrarEmpleado(emp.id)"><mat-icon color="warn">delete</mat-icon></a> </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="tablaEmpleado"></tr>
+                <tr mat-row *matRowDef="let row; columns: tablaEmpleado;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="listmano" showFirstLastButtons></mat-paginator>
+        </div>
+        <div *ngIf="!listaEmpleado" class="noEncontrado">
+            
+           <p>Lista Vacia no se Crearon Empleados</p>
+        </div>
+            
+        
+    </div>
+            
+    
+    
+</main>
+<app-footer [oscuro]="oscuro"></app-footer>

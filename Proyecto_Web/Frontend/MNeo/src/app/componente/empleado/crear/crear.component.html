@@ -1,0 +1,16 @@
+
+<app-header (oscuro)="modoOscuro($event)"></app-header>
+<main class="fondoContenido" [ngClass]="{'oscuro':oscuro}">
+    <div class="contenido">
+        <div class="container pt-2">
+            <div class="row justify-content-sn-center">
+                
+                <h1 class="text-center pt-2 text-secondary text-warning">Formulario Crear Empleado</h1>
+                <app-form></app-form>
+                
+            </div>
+        </div>
+    </div>
+    
+</main>
+<app-footer [oscuro]="oscuro"></app-footer>

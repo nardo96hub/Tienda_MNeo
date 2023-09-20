@@ -1,0 +1,244 @@
+<!-- Home -->
+<div *ngIf="contenido==1">
+    <div class="minHeight">
+        <div>
+            <h1 class="titulo">Bienvenido a MNEO</h1>
+            <p class="color">Implementacion de una parta de las actividades que realiza un Usuario con Rol:Admin</p>
+            <p class="color">En esta version el Admin solo puede realizar activadades con Empleados y Conceptos</p><br><br>
+            <p class="color">Empleados: CRUD Empleados</p>
+            <p class="color">Concepto: Obtener lista de Conceptos</p>
+            <p class="color">Jornada: No se Implemento en Front</p>
+        </div>
+    </div>
+</div>
+<!-- Resumen -->
+<div *ngIf="contenido==2">
+    <div>
+        <h2 class="titulo">RESUMEN DE LA PAGINA</h2>
+        <mat-list>
+            <mat-list-item>
+                <span matListItemTitle>Empleado</span>
+                <span matListItemLine>
+                    <mat-list>
+                        <mat-list-item>
+                            <span matListItemTitle>Crear Empleado</span>
+                            <span matListItemLine>Me redirige a la ruta:'/crearEmpleado' donde a travez de un formulario ingreso y valido los datos de un empleado.</span>
+                            <span matListItemLine>Una vez pasado la validaciones se puede dar click al boton 'crearEmpleado' </span>
+                            <span matListItemLine>Luego de dar click, gracias a funcion crear() envio al back los datos del empleado</span>
+                            <span matListItemLine>Si no produce ningun error crea el empleado y luego me redirige a '/listarEmpleado' donde se ve la lista de todos los empleados</span>
+                            <span matListItemLine>En caso contrario se abre un DialogMat que muestra el error</span>
+                        </mat-list-item><br>
+                        <mat-list-item>
+                            <span matListItemTitle>Listar Empleado</span>
+                            <span matListItemLine>Muestra la lista de todos los empleados</span>
+                            <span matListItemLine>Ademas de listar se puede editar y borrar un empleado</span>
+                            <span matListItemLine>Editar: Se abre un DialogMat con los datos del empleado para que se modifique.</span>
+                            <span matListItemLine>  Se realiza validacion en front y back si no produce error me redirige a pagina princial</span>
+                            <span matListItemLine>Borrar: Envio al back el id del empleado, en caso de no encontrar produce error .Una vez que encuentra el id lo borro y luego redirijo a pagina princial</span>
+                        </mat-list-item> <br>
+                        <mat-list-item>
+                            <span matListItemTitle>Obtener Empleado</span>
+                            <span matListItemLine>me redirige a '/getEmpleado' y muestra un formulario para ingresar id y dar boton buscar</span>
+                            <span matListItemLine>Por la funcion editar() envio al back el id a buscar. Puede ocurrir 2 cosas:</span>
+                            <span matListItemLine>Ocurre error y me muestra DialogMat con el error</span>
+                            <span matListItemLine>Muestro los datos del Empleado</span>
+                        </mat-list-item>
+                    </mat-list>
+                </span> 
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Concepto</span>
+                <span matListItemLine>Obtengo del Back la lista de todos los Conceptos </span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Jornada</span>
+                <span matListItemLine>Listar y Crear Jornada</span>
+                <span matListItemLine>No esta desarrollado en el FrontEnd pero si se implemento en el Backend</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle> Boton de modoOscuro</span>
+                <span matListItemLine>Al Realizar click aplica estilos distintos </span>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>
+<!-- Errores -->
+<div *ngIf="contenido==3">
+    <div>
+        <h2 class="titulo">LISTA DE ERRORES</h2>
+        <mat-list>
+            <mat-list-item>
+                <span matListItemTitle>Backend</span>
+                <span matListItemLine>
+                    <mat-list>
+                        <mat-list-item>
+                            <span matListItemTitle>Empleado</span>
+                            <span >
+                                <mat-list>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Crear Empleado</span>
+                                        <span >
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>La edad del empleado no puede ser menor a 18 años.</span>
+                                                    <span matListItemLine>Analiza la fecha de creacion y la fecha de nacimiento si la diferencia es menor a 18 entonces se produce el error</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Ya existe un empleado con el documento ingresado.</span>
+                                                    <span matListItemLine>Busco si el email del nuevo empleado existe en la base de datos en caso de ocurrir produce el error</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Ya existe un empleado con el email ingresado.</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>La fecha de ingreso no puede ser posterior al día de la fecha.</span>
+                                                    <span matListItemLine>Recibo la fecha de ingreso y creacion si fechaIngreso > fechaCreacion produce error</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>La fecha de nacimiento no puede ser posterior al día de la fecha.</span>
+                                                    <span matListItemLine>Recibo la fecha de nacimiento y creacion si fechaNacimiento > fechaCreacion produce error</span>
+                                                </mat-list-item>
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Actualizar Empleado</span>
+                                        <span >
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>No se encontró el empleado con Id</span>
+                                                    <span matListItemLine>Recibo un id y busco si existe en la base de datos de no encontrar produce el error</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Los mismos que en Crear Empleado</span>
+                                                </mat-list-item>
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Borrar Empleado</span>
+                                        <span >
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>No se encontró el empleado con Id</span>
+                                                    <span matListItemLine>Recibo un id y busco si existe en la base de datos de no encontrar produce el error</span>
+                                                </mat-list-item>
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Get Empleado</span>
+                                        <span >
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>No se encontró el empleado con Id</span>
+                                                    <span matListItemLine>Recibo un id y busco si existe en la base de datos de no encontrar produce el error</span>
+                                                </mat-list-item>
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                </mat-list>
+                            </span>
+                        </mat-list-item>
+                    </mat-list>
+                </span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Frontend</span>
+                <span matListItemLine>
+                    <mat-list>
+                        <mat-list-item>
+                            <span matListItemTitle>Empleado</span>
+                            <span>
+                                <mat-list>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Crear y Actualizar Empleado</span>
+                                        <span>
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Nombre y Apellido</span>
+                                                    <span>
+                                                        <mat-list>
+                                                            <mat-list-item>
+                                                                <span matListItemTitle>'campo' es requerido</span>
+                                                                <span matListItemLine> Si no ingresa nada produce el error</span>
+                                                            </mat-list-item>
+                                                            <mat-list-item>
+                                                                <span matListItemTitle>Solo admite letras</span>
+                                                                <span matListItemLine>Si ingresa numeros o caracter especial produce el error</span>
+                                                            </mat-list-item>
+                                                        </mat-list>
+                                                    </span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>FechaIngreso, FechaNacimiento,Dni</span>
+                                                    <span matListItemLine>'campo' es requerido</span>
+                                                </mat-list-item>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Email</span>
+                                                    <span>
+                                                        <mat-list>
+                                                            <mat-list-item>
+                                                                <span matListItemTitle>'email' es requerido</span>
+                                                            </mat-list-item>
+                                                            <mat-list-item>
+                                                                <span matListItemTitle>Formato email invalido</span>
+                                                                <span matListItemLine>Si no hay formato: _ '@' _ '.com'  produce el error </span>
+                                                            </mat-list-item>
+                                                        </mat-list>
+                                                    </span>
+                                                </mat-list-item>
+                                               
+
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <span matListItemTitle>Obtener Empleado</span>
+                                        <span>
+                                            <mat-list>
+                                                <mat-list-item>
+                                                    <span matListItemTitle>Id requerido</span>
+                                                    <span matListItemLine>Es necesario ingresar id para buscar empleado</span>
+                                                </mat-list-item>
+                                            </mat-list>
+                                        </span>
+                                    </mat-list-item>
+                                </mat-list>
+                            </span>
+                        </mat-list-item>
+                    </mat-list>
+                </span>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>
+
+<!-- Actualizacion -->
+<div *ngIf="contenido==4">
+    <div>
+        <h2 class="titulo">FUTURAS ACTUALIZACIONES</h2>
+        <mat-list>
+            <mat-list-item>
+                <span matListItemTitle>Jornada</span>
+                <span matListItemLine>Implementar en el frontend crear y listar Jornada</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Implementar Login y crear Usuario con Roles[Admin,Cliente,Empleado]</span>
+                <span matListItemLine>Implementar tanto en back como front la creacion e ingreso de Usuario</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Sistema de venta de Productos </span>
+                <span matListItemLine>Implementar en frontend  y agregar lo desarrollado en Backend del anterior proyecto desarrollado</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Actualizacion y compra de productos con los Proveedores</span>
+                <span matListItemLine>Implementar en fronted y backend </span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Otras Actualizaciones</span>
+                <span matListItemLine>Futuras actualizacion que sean necesarias</span>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>

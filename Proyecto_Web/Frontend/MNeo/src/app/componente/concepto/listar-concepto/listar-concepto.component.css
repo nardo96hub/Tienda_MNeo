@@ -1,0 +1,13 @@
+.titulo{
+    text-align: center;
+    margin-top: 10px;
+}
+.tabla{
+    padding: 40px 0;
+}
+.noEncontrado{
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    padding-bottom: 200px;
+}

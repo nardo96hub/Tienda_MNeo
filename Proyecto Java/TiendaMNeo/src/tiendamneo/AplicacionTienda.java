@@ -22,7 +22,9 @@ public class AplicacionTienda {
 
  
     public static void main(String[] args) {
-   
+       
+        /*
+        
        Scanner scan=new Scanner(System.in);
        
        Tienda MNeo=new Tienda();
@@ -101,7 +103,24 @@ public class AplicacionTienda {
        System.out.println("Programa desarrollado por Nardelli Luciano.\nFin del Programa. Adios");
        
     
+      */ 
+        
+        LocalDate hoy=LocalDate.now();
+        LocalDate menor,mayor;
+        System.out.println(hoy.getDayOfWeek());
+        switch(hoy.getDayOfWeek()){
+            case MONDAY:
+                menor=hoy;
+                mayor=hoy.plusDays(6);
+                break;
+            default:
+                menor=hoy.minusDays(2);
+                mayor=hoy.plusDays(4);
+                break;
+        }
+        
+        System.out.println("Hoy: "+hoy+" pertenece en el rango de semana: ["+menor+" _ "+mayor);
         
     }
-
+    
 }

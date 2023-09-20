@@ -1,0 +1,92 @@
+<div class="fondo">
+    <h1 mat-dialog-title>Editar Empleado</h1>
+    <div [formGroup]="editarEmpleado" > 
+        <mat-dialog-content>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre" placeholder="Ingrese su Nombre" required >
+                        
+                        <mat-error *ngIf="(editarEmpleado.get('nombre')?.touched || editarEmpleado.get('nombre')?.dirty) && editarEmpleado.get('nombre')?.invalid">
+                            <span *ngIf="editarEmpleado.get('nombre')?.hasError('required')">Nombre requerido</span>
+                            <span *ngIf="editarEmpleado.get('nombre')?.hasError('pattern')">Solo admite letras</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput formControlName="apellido" placeholder="Ingrese su Apellido" required >
+                        <mat-error *ngIf="(editarEmpleado.get('apellido')?.touched || editarEmpleado.get('apellido')?.dirty) && editarEmpleado.get('apellido')?.invalid">
+                            <span *ngIf="editarEmpleado.get('apellido')?.hasError('required')">Apellido requerido</span>
+                            <span *ngIf="editarEmpleado.get('apellido')?.hasError('pattern')">Solo admite letras</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="Ingrese su email" required>
+                    <mat-error *ngIf="(editarEmpleado.get('email')?.touched || editarEmpleado.get('email')?.dirty) && editarEmpleado.get('email')?.invalid">
+                            <span *ngIf="editarEmpleado.get('email')?.hasError('required')">Email requerido</span>
+                            <span *ngIf="editarEmpleado.get('email')?.hasError('email')">Formato Email Invalido</span>
+                        </mat-error>
+                        
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Dni</mat-label>
+                        <input type="number" matInput  formControlName="dni" placeholder="Ingrese su dni" required>
+                        <mat-error *ngIf="(editarEmpleado.get('dni')?.touched || editarEmpleado.get('dni')?.dirty) && editarEmpleado.get('dni')?.invalid">
+                            <span *ngIf="editarEmpleado.get('dni')?.hasError('required')">Dni requerido</span>
+                            
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            
+        
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha Nacimiento</mat-label>
+                        <input matInput [matDatepicker]="Nacimiento" formControlName="fechaNacimiento" placeholder="Ingrese su fecha Nacimiento" required>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-error *ngIf="(editarEmpleado.get('fechaNacimiento')?.touched || editarEmpleado.get('fechaNacimiento')?.dirty) && editarEmpleado.get('fechaNacimiento')?.invalid">
+                            <span *ngIf="editarEmpleado.get('fechaNacimiento')?.hasError('required')">Fecha de Nacimiento requerido</span>
+                            
+                        </mat-error>
+                        <mat-datepicker-toggle matIconSuffix [for]="Nacimiento"></mat-datepicker-toggle>
+                        <mat-datepicker #Nacimiento></mat-datepicker>
+                    </mat-form-field>
+                    
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha Ingreso</mat-label>
+                        <input matInput [matDatepicker]="Ingreso" formControlName="fechaIngreso" placeholder="Ingrese su fecha Ingreso" required>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-error *ngIf="(editarEmpleado.get('fechaIngreso')?.touched || editarEmpleado.get('fechaIngreso')?.dirty) && editarEmpleado.get('fechaIngreso')?.invalid">
+                            <span *ngIf="editarEmpleado.get('fechaIngreso')?.hasError('required')">Fecha de Ingreso requerido</span>
+                            
+                        </mat-error>
+                        <mat-datepicker-toggle matIconSuffix [for]="Ingreso"></mat-datepicker-toggle>
+                        <mat-datepicker #Ingreso></mat-datepicker>
+                    </mat-form-field>
+                    
+                </div>
+            </div>
+        
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button  color="primary" (click)="salir()">Salir</button>
+            <button mat-raised-button  color="accent"  (click)="editar()" [disabled]="!(editarEmpleado.valid && editarEmpleado.dirty)" cdkFocusInitial>Editar Empleado</button>
+        </mat-dialog-actions>
+    </div>
+</div>

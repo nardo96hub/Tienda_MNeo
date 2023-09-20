@@ -1,0 +1,19 @@
+.noEncontrado{
+    padding-bottom: 208px;
+    text-align: center;  
+    font-size: 20px;
+    font-weight: bold;
+}
+.buscar{
+    margin-left: 5%;
+}
+.crear{
+    
+    margin-left: 20%;
+    width: 100px;
+    padding: 20px 0;
+}
+.contenido{
+    padding-top: 20px;
+    padding-bottom: 70px;
+}

@@ -1,0 +1,36 @@
+
+<app-header (oscuro)="modoOscuro($event)"></app-header>
+
+<main class="fondoContenido" [ngClass]="{'oscuro':oscuro}">
+    <div class="contenido">
+        
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <mat-tab-group>
+                    <mat-tab label="Home">
+                        
+                        <app-contenido [contenido]="1"></app-contenido>
+                    </mat-tab>
+                    <mat-tab label="Resumen">
+                        <app-contenido [contenido]="2"></app-contenido>
+
+                    </mat-tab>
+                    <mat-tab label="Errores">
+                        <app-contenido [contenido]="3"></app-contenido>
+                       
+                    </mat-tab>
+                    <mat-tab label="Actualizaciones">
+                        <app-contenido [contenido]="4"></app-contenido>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        
+
+
+    </div>
+</main>
+
+<app-footer [oscuro]="oscuro"></app-footer>

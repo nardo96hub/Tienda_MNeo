@@ -1,0 +1,16 @@
+<div class="bg-danger">
+    <h1 mat-dialog-title >Ocurrio un Error en el servidor</h1>
+    <mat-dialog-content class="text-info">
+        <p>
+            HttpStatus: {{e.status}}
+        </p>
+        <p>
+            Nombre HttpStatus: {{e.error}}
+        </p>
+        <p>Error: {{e.message}}
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" >
+        <button mat-raised-button color="accent" mat-dialog-close>Salir</button>
+    </mat-dialog-actions>
+</div>

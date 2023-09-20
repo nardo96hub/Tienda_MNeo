@@ -1,0 +1,48 @@
+
+<app-header (oscuro)="modoOscuro($event)"></app-header>
+<main class="fondoContenido" [ngClass]="{'oscuro':oscuro}">
+  
+      
+    <div>
+      <mat-form-field class="inputId">
+        <mat-label>Id</mat-label>
+        <input matInput type="number" [formControl]="id" placeholder="Ingrese id" required>
+        <mat-hint>Ingrese Id Empleado</mat-hint>
+        <mat-error *ngIf="(id.touched || id.dirty) && id.invalid">Id requerido</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button (click)="buscarID()" class="buscarId" [disabled]="!id.valid">Buscar Id</button>
+    </div>
+  
+    <div *ngIf="empleado" class="ubicacion">
+
+      <h1>Empleado encontrado. Id:{{empleado.id}}</h1>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3" style="text-align: right;">
+          <img src="../../../../assets/img/persona.png" alt="logo persona" class="logo">
+        </div>
+        <div class="col-7 infoLogo">
+          <p>{{empleado.apellido}}, {{empleado.nombre}}</p>
+          <p>{{empleado.email}}</p>
+          <p>DNI:{{empleado.nroDocumento}}</p>
+        </div>         
+      </div> 
+      
+      <div class="row">
+        <div class="col-5"></div>
+        <div class="col-7" style="text-align: left">
+          <p>Nacimiento:{{empleado.fechaNacimiento}}</p>
+          <p>Ingreso:{{empleado.fechaIngreso}}</p>
+          <p>Creacion:{{empleado.fechaCreacion}}</p>
+          
+        </div>
+      </div>
+      
+ 
+      
+      
+      
+    </div>
+</main>
+<app-footer [oscuro]="oscuro"></app-footer>

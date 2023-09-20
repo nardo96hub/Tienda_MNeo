@@ -1,0 +1,54 @@
+.texto{
+    text-align: center;
+}
+.titulo{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+   padding-top: 10px;
+}
+.info{
+    font-size: 19px;
+    font-weight: normal;
+}
+.copy{
+    font-size: 16px;
+    font-weight: normal;
+}
+.negrita{
+    font-weight: bold;
+}
+footer{
+    width: 98.5%;
+   
+   
+}
+.facebook:hover{
+    color: blue !important;
+}
+  
+.instagram:hover{
+    color: rgb(255, 3, 255) !important;
+}
+  
+.twitter:hover{
+    color: skyblue !important;
+}
+.github:hover{
+    color: rgb(255, 255, 255) !important;
+}
+.linkedin:hover{
+    color: rgb(7, 7, 7) !important;
+}
+a{
+    padding: 0 2.5px;
+    color: green
+}
+.modoOscuro{
+    background: rgba(0,41,28,.4);
+    background-image: linear-gradient(90deg,#13322b 15%,#00573f 85%);
+    color: wheat;
+}
+.modoOscuro a{
+    color: rgb(238, 255, 0);
+}

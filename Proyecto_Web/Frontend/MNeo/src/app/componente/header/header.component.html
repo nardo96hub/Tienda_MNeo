@@ -1,0 +1,39 @@
+<header [ngClass]="{'modoOscuro':modo}">
+    
+    <mat-toolbar color="primary"  >  
+        <div class="row">
+            <div class="col-3">
+
+                <a href=""><img src="../../../assets/img/MNeo logo.png" alt="Logo" class="logo"></a>
+            </div>
+            
+            <div class="col-7">
+                <div>                        
+                    <button mat-raised-button [color]="modo? 'primary':'accent'" [matMenuTriggerFor]="empleado" class="menu">Empleados</button>
+                    <mat-menu #empleado="matMenu" class="menuMenor bg-info">
+                        <a href="/crearEmpleado"><button mat-menu-item>Crear Empleado</button></a>
+                        <a href="/listarEmpleado"><button mat-menu-item>Listar Empleado</button></a>
+                        <a href="/getEmpleado"><button mat-menu-item>Obtener Empleado</button></a>
+                        
+                    </mat-menu>                                   
+                    <button mat-raised-button [color]="modo? 'primary':'accent'" [matMenuTriggerFor]="concepto" class="menu ">Concepto</button>
+                    <mat-menu #concepto="matMenu" class="bg-secondary">
+                        <a href="/listarConcepto"><button mat-menu-item>Listar Conceptos</button></a>
+                    </mat-menu>                            
+                    <button mat-raised-button [color]="modo? 'primary':'accent'" [matMenuTriggerFor]="jornada" class="menu" >Jornada</button>  
+                    <mat-menu #jornada="matMenu">
+                        <button mat-menu-item disabled>Listar Jornadas</button>
+                        <button mat-menu-item disabled>Obtener Jornada</button>
+                    </mat-menu> 
+                </div>
+            </div>
+            <div class="col-1 mover">
+                <mat-slide-toggle [(ngModel)]="modo" (click)="enviarM()">
+                    <mat-icon>{{(modo)? 'brightness_7':'brightness_3'}}</mat-icon>
+                </mat-slide-toggle>
+            </div>
+        </div>
+        
+    </mat-toolbar>
+</header>
+
